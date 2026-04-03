@@ -1,4 +1,4 @@
-SPARK-LRS was created to reduce raw science files from the Low Resolution Spectrograph on the 2.4 m Thai National Telescope. It was designed to meet SPEARNET’s need for a dual-slit data reduction pipeline and was also adapted for single-target long-slit observations.
+SPECTRE was created to reduce raw science files from the Low Resolution Spectrograph on the 2.4 m Thai National Telescope. It was designed to meet SPEARNET’s need for a dual-slit data reduction pipeline and was also adapted for single-target long-slit observations.
 
 This documentation describes the functionality of the pipeline and explains each user-accessible function in detail. If you are looking for a quick tutorial, please see section 4.
 
@@ -10,7 +10,7 @@ The pipeline is structured into distinct stages, each with a specific goal. Firs
 
 ## 1. Getting started
 
-SPARK-LRS is designed to run in an automated way. The user provides the path to the folder containing all raw science and calibration frames, and the code organizes and categorizes the files automatically. This setup allows the following reduction steps to be almost entirely hands-off.
+SPECTRE is designed to run in an automated way. The user provides the path to the folder containing all raw science and calibration frames, and the code organizes and categorizes the files automatically. This setup allows the following reduction steps to be almost entirely hands-off.
 
 To begin, initialize the pipeline by calling the class with two arguments:
 
@@ -69,7 +69,7 @@ into your notebook. This will median combine all the biases into a singular mast
 
 It is important to note that all processes here are interconnected, so if you do not run the master_bias() command (or any other commands), you won't be able to run the next steps!
 
-The next step is to prepare a master dark frame. Dark frames are exposures taken with the shutter closed, usually with exposure times matching those of science frames, and are used to measure thermal noise from the detector. A master dark is created by median combining multiple individual dark frames so that random noise averages out. In SPARK-LRS the master dark can be retrieved or created using:
+The next step is to prepare a master dark frame. Dark frames are exposures taken with the shutter closed, usually with exposure times matching those of science frames, and are used to measure thermal noise from the detector. A master dark is created by median combining multiple individual dark frames so that random noise averages out. In SPECTRE the master dark can be retrieved or created using:
 
 ```python
 session_1.master_dark()
@@ -91,7 +91,7 @@ session_1.science_reduction()
 Using this function, each frame is trimmed to the slit, bias-subtracted, dark-subtracted, and corrected with the master flat. The reduced frames are saved individually in the 'Calibrated files' folder with filenames beginning with 'science_reduced_[your initial file name]'. Observation times from the headers are also stored for later use in photometric or temporal analysis (if the user chooses to do so). 
 
 ### 2.1 Wavelength calibration
-Since wavelength calibration can be performed in three different ways I decided to make this step into a separate subsection to avoid bulky documentation. This step is also the only point,apart from initializing SPARK-LRS, where user input is required.
+Since wavelength calibration can be performed in three different ways I decided to make this step into a separate subsection to avoid bulky documentation. This step is also the only point,apart from initializing SPECTRE, where user input is required.
 #### Collapsing arcs
 Our science frames are now reduced, but they are not yet wavelength calibrated. This means that spectral features are still expressed in pixel space rather than in physical units of wavelength. To begin calibration, we first process the arc frames with
 ```python
