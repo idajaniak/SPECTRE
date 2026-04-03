@@ -1,8 +1,8 @@
-# SPARK-LRS
-SPectroscopic Automated Reduction Kit for the Low Resolution Spectrograph on the 2.4 m Thai National Telescope - a Python pipeline for automated spectroscopic data reduction of TNT/LRS observations.
+# SPECTRE
+Spectroscopic Processing, Extraction, Calibration and Time-series Reduction Engine - a Python pipeline for automated spectroscopic data reduction of long slit spectroscopic observations.
 
 ## About
-SPARK-LRS automates the reduction of data from the 2.4 m Thai National Telescope’s Low Resolution Spectrograph (LRS).
+SPECTRE automates the reduction of data from the 2.4 m Thai National Telescope’s Low Resolution Spectrograph (LRS).
 While it was originally designed for exoplanetary transits, it was expanded to provide a general framework for long-slit spectroscopy for both, single- and dual-target slit observations.
 
 ### Features include: 
